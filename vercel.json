@@ -2,13 +2,7 @@
   "version": 2,
   "functions": {
     "api/signal.js": {
-      "runtime": "experimental-edge"
+      "runtime": "edge"
     }
-  },
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/api/$1.js"
-    }
-  ]
+  }
 }
