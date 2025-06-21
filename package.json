@@ -1,0 +1,24 @@
+{
+  "name": "lean-signal-relay",
+  "version": "1.0.0",
+  "description": "This Vercel Edge Function receives trading signals from Lean Cloud and forwards them to a Cloudflare Worker for processing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geekjapan/lean-signal-relay.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/geekjapan/lean-signal-relay/issues"
+  },
+  "homepage": "https://github.com/geekjapan/lean-signal-relay#readme",
+  "dependencies": {
+    "next": "^15.3.4"
+  }
+}
