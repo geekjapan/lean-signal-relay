@@ -1,24 +1,34 @@
-export default async function handler(req, res) {
-  if (req.method === "POST") {
+export const config = {
+  runtime: 'edge'
+};
+
+export default async function handler(req) {
+  const { method } = req;
+
+  if (method === "POST") {
     try {
+      const body = await req.json();
       const forward = await fetch("https://lean-signal-api.geekjapan.workers.dev", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(req.body)
+        body: JSON.stringify(body)
       });
 
       const result = await forward.text();
-      return res.status(200).send("Relayed: " + result);
+      return new Response("Relayed: " + result, { status: 200 });
     } catch (err) {
-      return res.status(500).send("Failed to relay: " + err.toString());
+      return new Response("Failed to relay: " + err.toString(), { status: 500 });
     }
   }
 
-  if (req.method === "GET") {
+  if (method === "GET") {
     const resp = await fetch("https://lean-signal-api.geekjapan.workers.dev");
     const data = await resp.text();
-    return res.status(200).send(data);
+    return new Response(data, {
+      status: 200,
+      headers: { "Content-Type": "application/json" }
+    });
   }
 
-  res.status(405).send("Method not allowed");
+  return new Response("Method not allowed", { status: 405 });
 }
