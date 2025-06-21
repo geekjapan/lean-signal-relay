@@ -4,8 +4,8 @@ This Vercel Edge Function receives trading signals from Lean Cloud and forwards 
 
 ## Endpoints
 
-- **POST /api/signal**: Relay signal to Worker
-- **GET /api/signal**: Fetch last signal from Worker
+- **POST /app/api/signal**: Relay signal to Worker
+- **GET /app/api/signal**: Fetch last signal from Worker
 
 ## Deployment
 
